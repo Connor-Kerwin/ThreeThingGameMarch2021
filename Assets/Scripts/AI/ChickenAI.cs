@@ -1,30 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
-public class ChickenSystem : GameSystem<ChickenSystem>
-{
-    public int EggLimit = 128;
-    public GameObject EggPrefab;
-
-    public bool TrySpawnEgg(Vector3 position)
-    {
-        return false;
-    }
-}
-
-public class ChickenSystemInterface : GameSystemInterface<ChickenSystem>
-{
-    protected override ChickenSystem GetTarget()
-    {
-        return ChickenSystem.Instance;
-    }
-}
 
 public class ChickenAI : MonoBehaviour
 {
     public NavMeshAgent Agent;
+    public ChickenSystemInterface Interface;
 
     public float DistanceThreshold = 0.1f;
     public float PathRate = 1.0f;
@@ -58,8 +39,7 @@ public class ChickenAI : MonoBehaviour
 
     private void LayEgg()
     {
-        var inst = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        inst.transform.position = transform.position;
+        Interface.TrySpawnEgg(transform.position);
     }
 
     private void GenerateNewPath()
