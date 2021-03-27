@@ -473,8 +473,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  cooldown: 0
-  swishObject: {fileID: 0}
+  cooldown: 2
+  SwishDuration: 1
+  Swishtance: 1.5
+  swishPefab: {fileID: 843385540974189144, guid: 539c1cb480414a84bb92ad64fdb259c5,
+    type: 3}
 --- !u!114 &654355355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,7 +491,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  cooldown: 0
+  cooldown: 0.5
+  Duration: 1
+  speed: 500
+  ninjaStarPrefab: {fileID: 6659545522969175365, guid: 8936df71bd350b34186a6daabfa98d54,
+    type: 3}
 --- !u!114 &654355356
 MonoBehaviour:
   m_ObjectHideFlags: 0

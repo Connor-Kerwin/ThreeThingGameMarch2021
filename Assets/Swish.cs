@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class Swish : Attack
 {
-    public GameObject swishObject;
+    public float SwishDuration;
+    public float Swishtance;
+    public GameObject swishPefab;
     public override void Invoke(Vector3 sourcePos, Vector3 sourceDir)
     {
-        GameObject.Instantiate(swishObject, sourceDir, Quaternion.identity);
+        var obj = GameObject.Instantiate(swishPefab, new Vector3(sourcePos.x, sourcePos.y + 0.7f, sourcePos.z), Quaternion.identity);
+        obj.transform.forward = sourceDir;
+        obj.transform.position = obj.transform.position + (obj.transform.forward * Swishtance);
+        var dmg = obj.AddComponent<Damage>();
+        dmg.DamageAmount = damage;
+        dmg.destryOnContact = false;
+        GameObject.Destroy(obj, SwishDuration);
     }
 }

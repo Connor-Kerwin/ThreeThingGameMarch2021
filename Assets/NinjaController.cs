@@ -33,7 +33,15 @@ public class NinjaController : MonoBehaviour
         var hori = Input.GetAxis("Horizontal");
         UpdateMovment(vert, hori);
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            MainAttack();
+        }
 
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SecondaryAttack();
+        }
     }
 
     private void UpdateMovment(float vert, float hori)
@@ -62,7 +70,7 @@ public class NinjaController : MonoBehaviour
 
     public void MainAttack()
     {
-        if(Time.time > mainAttackCooldDown)
+        if (Time.time > mainAttackCooldDown)
         {
             CurrentMainAttack.Invoke(gameObject.transform.position, gameObject.transform.forward);
             mainAttackCooldDown = Time.time + CurrentMainAttack.cooldown;
@@ -74,7 +82,7 @@ public class NinjaController : MonoBehaviour
         if (Time.time > secondaryAttackCoolDown)
         {
             CurrentSecondaryAttack.Invoke(gameObject.transform.position, gameObject.transform.forward);
-            mainAttackCooldDown = Time.time + CurrentSecondaryAttack.cooldown;
+            secondaryAttackCoolDown = Time.time + CurrentSecondaryAttack.cooldown;
         }
     }
 
