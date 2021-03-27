@@ -21,6 +21,18 @@ public class PlayerController : MonoBehaviour
     private Vector3 rotation;
     private float bob;
 
+    public void SetMode(PlayerMode mode)
+    {
+        if(mode == PlayerMode.Local)
+        {
+            enabled = true;
+        }
+        else // Not local!
+        {
+            enabled = false;
+        }
+    }
+
     private void LateUpdate()
     {
         float axisX = Input.GetAxis("Horizontal") * StrafeSpeed;
