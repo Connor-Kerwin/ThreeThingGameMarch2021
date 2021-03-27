@@ -9,6 +9,8 @@ public class PlayerSystem : GameSystem<PlayerSystem>
 
     public Transform[] PlayerSpawns;
 
+    public GamePlayer Player { get { return player; } }
+
     public event Action<GamePlayer> OnPlayerSpawned;
     public event Action<GamePlayer> OnPlayerDespawned;
 
