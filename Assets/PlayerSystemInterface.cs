@@ -2,18 +2,19 @@
 
 public class PlayerSystemInterface : GameSystemInterface<PlayerSystem>
 {
-    public UnityEvent_GamePlayer OnPlayerChanged;
-
     protected override void Awake()
     {
         base.Awake();
-
-        Target.OnPlayerChanged += OnPlayerChangedInternal;
     }
 
-    private void OnPlayerChangedInternal(GamePlayer obj)
+    public void SpawnPlayer()
     {
-        OnPlayerChanged.Invoke(obj);
+        Target.SpawnPlayer();
+    }
+
+    public void DespawnPlayer()
+    {
+        Target.DespawnPlayer();
     }
 
     protected override PlayerSystem GetTarget()
