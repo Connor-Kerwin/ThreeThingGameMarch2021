@@ -1,13 +1,47 @@
 ﻿using System;
+using UnityEngine;
 
 public class PlayerSystem : GameSystem<PlayerSystem>
 {
-    public GamePlayer Player { get; private set; }
+    private GamePlayer player;
 
-    public event Action<GamePlayer> OnPlayerChanged;
+    public GamePlayer PlayerPrefab;
 
-    public void SetPlayer(GamePlayer player)
+    public Transform[] PlayerSpawns;
+
+    public event Action<GamePlayer> OnPlayerSpawned;
+    public event Action<GamePlayer> OnPlayerDespawned;
+
+    public void SpawnPlayer()
     {
-        Player = player;
+        if (player != null)
+        {
+            Debug.LogError("Cannot spawn multiple players");
+            return;
+        }
+
+        player = GameObject.Instantiate<GamePlayer>(PlayerPrefab);
+
+        Pose pose = GetSpawnPose();
+        player.Spawn(pose);
+        OnPlayerSpawned?.Invoke(player);
+    }
+
+    public void DespawnPlayer()
+    {
+        if(player == null)
+        {
+            return;
+        }
+
+        player.Despawn();
+        OnPlayerDespawned?.Invoke(player);
+        GameObject.Destroy(player);
+    }
+
+    private Pose GetSpawnPose()
+    {
+        Transform spawnPoint = PlayerSpawns[0];
+        return new Pose(spawnPoint.position, spawnPoint.rotation);
     }
 }

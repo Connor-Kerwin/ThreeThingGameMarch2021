@@ -1,47 +1,24 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
-
-[System.Serializable]
-public enum GameTeam
-{
-    Red,
-    Blue
-}
 
 public class ScoreSystem : GameSystem<ScoreSystem>
 {
-    public delegate void TeamEvent(GameTeam team);
+    public int Score { get; private set; }
 
-    public ScoreHandler Handler;
-
-    public event TeamEvent OnTeamWin;
-
-    public void SetHandler(ScoreHandler handler)
+    public void ResetScore()
     {
-        Handler = handler;
-    }
-}
-
-public class GameSessionSystem : GameSystem<GameSessionSystem>
-{
-    public bool InSession { get; private set; }
-
-
-
-    private void Start()
-    {
-        var netSys = NetworkSystem.Instance;
+        Score = 0;
     }
 
-    public void StartSession()
+    public void AddScore(int score)
     {
-        InSession = true;
+        Score += score;
     }
 
-    public void EndSession()
+    public async Task SubmitScoreToRemote(string username)
     {
-        InSession = false;
+        await Task.Delay(1000);
     }
 }
