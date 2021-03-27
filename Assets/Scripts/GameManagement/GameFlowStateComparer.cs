@@ -10,7 +10,7 @@ public class GameFlowStateComparer : MonoBehaviour
 
     public void Compare(GameFlowState state)
     {
-        if(state == TargetState)
+        if (state == TargetState)
         {
             OnStateMatch?.Invoke();
         }
