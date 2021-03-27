@@ -11,4 +11,9 @@ public class ChickenSystemInterface : GameSystemInterface<ChickenSystem>
     {
         return ChickenSystem.Instance;
     }
+
+    public void ClearEggs()
+    {
+        Target.ClearEggs();
+    }
 }

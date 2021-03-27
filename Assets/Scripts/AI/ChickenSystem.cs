@@ -28,4 +28,17 @@ public class ChickenSystem : GameSystem<ChickenSystem>
 
         return false;
     }
+
+    public void ClearEggs()
+    {
+        foreach(var item in eggs)
+        {
+            if(item == null)
+            {
+                continue;
+            }
+
+            GameObject.Destroy(item.gameObject);
+        }
+    }
 }
