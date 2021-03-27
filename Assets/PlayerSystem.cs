@@ -38,7 +38,7 @@ public class PlayerSystem : GameSystem<PlayerSystem>
 
         player.Despawn();
         OnPlayerDespawned?.Invoke(player);
-        GameObject.Destroy(player);
+        GameObject.Destroy(player.gameObject);
     }
 
     private Pose GetSpawnPose()
