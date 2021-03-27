@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ChickenSystem : GameSystem<ChickenSystem>
 {
+    // TODO: Handle despawning eggs + remove ref...
+
     public int EggLimit = 128;
     public GameObject EggPrefab;
 
