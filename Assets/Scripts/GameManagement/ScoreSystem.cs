@@ -1,10 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public enum GameTeam
+{
+    Red,
+    Blue
+}
+
 public class ScoreSystem : GameSystem<ScoreSystem>
 {
+    public delegate void TeamEvent(GameTeam team);
+
     public ScoreHandler Handler;
+
+    public event TeamEvent OnTeamWin;
 
     public void SetHandler(ScoreHandler handler)
     {
@@ -15,6 +27,8 @@ public class ScoreSystem : GameSystem<ScoreSystem>
 public class GameSessionSystem : GameSystem<GameSessionSystem>
 {
     public bool InSession { get; private set; }
+
+
 
     private void Start()
     {

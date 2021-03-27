@@ -34,6 +34,7 @@ public class GamePlayer : NetworkBehaviour, ICollector
         {
             LocalController.SetMode(PlayerMode.Local);
             CameraInterface.Target.Camera.SetTarget(LocalController.innerHead);
+            CameraInterface.Target.Camera.SetLerp(1.0f);
             col.enabled = true;
             col.isTrigger = false;
         }
