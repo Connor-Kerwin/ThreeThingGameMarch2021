@@ -9,7 +9,7 @@ public enum PlayerMode
 }
 
 [RequireComponent(typeof(PlayerSystemInterface), typeof(Health))]
-public class GamePlayer : NetworkBehaviour, ICollector
+public class GamePlayer : NetworkBehaviour, ICollector 
 {
     public PlayerSystemInterface Interface;
     public Health Health;
