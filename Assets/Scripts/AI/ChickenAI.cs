@@ -13,6 +13,7 @@ public class ChickenAI : MonoBehaviour
     public float RunThreshold = 5.0f;
     public float RunVariation = 25.0f;
     public float NextPathDistance = 5.0f;
+    public float SpeedMultiplier = 10.0f;
 
     private Vector3 destinationGoal;
     private float time;
@@ -22,23 +23,37 @@ public class ChickenAI : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (hasPath)
+        var player = PlayerInterface.Target.Player;
+        if (player != null)
         {
+            Agent.speed = (1.0f / Vector3.Distance(player.transform.position, transform.position)) * SpeedMultiplier;
+        }
+
+        //if (hasPath)
+        //{
             float dist = Vector3.Distance(transform.position, destinationGoal);
-            if(dist <= DistanceThreshold)
+            if (dist <= DistanceThreshold)
             {
                 LayEgg();
+                GenerateNewPath();
+                time = 0.0f;
                 hasPath = false;
             }
-        }
-        else
-        {
-            if(time >= PathRate)
+
+            if (time >= PathRate)
             {
                 GenerateNewPath();
                 time = 0.0f;
             }
-        }
+        //}
+        //else
+        //{
+        //    if (time >= PathRate)
+        //    {
+        //        GenerateNewPath();
+        //        time = 0.0f;
+        //    }
+        //}
     }
 
     private void LayEgg()

@@ -21,4 +21,9 @@ public class ScoreSystem : GameSystem<ScoreSystem>
     {
         await Task.Delay(1000);
     }
+
+    public async Task FetchScores()
+    {
+        await Task.Delay(1000);
+    }
 }

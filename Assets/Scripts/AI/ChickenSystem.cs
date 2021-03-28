@@ -6,27 +6,32 @@ public class ChickenSystem : GameSystem<ChickenSystem>
     // TODO: Handle despawning eggs + remove ref...
 
     public int EggLimit = 128;
-    public GameObject EggPrefab;
+    public Egg EggPrefab;
 
-    private List<GameObject> eggs;
+    private List<Egg> eggs;
 
     protected override void Awake()
     {
         base.Awake();
-        eggs = new List<GameObject>();
+        eggs = new List<Egg>();
     }
 
     public bool TrySpawnEgg(Vector3 position)
     {
         if(eggs.Count < EggLimit)
         {
-            GameObject instance = GameObject.Instantiate<GameObject>(EggPrefab);
+            Egg instance = GameObject.Instantiate<Egg>(EggPrefab);
             eggs.Add(instance);
 
             instance.transform.position = position;
         }
 
         return false;
+    }
+
+    public void Despawn(Egg egg)
+    {
+
     }
 
     public void ClearEggs()
@@ -40,5 +45,7 @@ public class ChickenSystem : GameSystem<ChickenSystem>
 
             GameObject.Destroy(item.gameObject);
         }
+
+        eggs.Clear();
     }
 }
