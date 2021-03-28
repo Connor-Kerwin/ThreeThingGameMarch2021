@@ -1,9 +1,8 @@
 ﻿public enum GameFlowState
 {
-    None,
-    Joining,
-    TeamSelect,
-    Playing
+    Menu,
+    Game,
+    Death
 }
 
 public class GameFlowSystem : GameSystem<GameFlowSystem>
@@ -16,7 +15,17 @@ public class GameFlowSystem : GameSystem<GameFlowSystem>
 
     public void SetState(GameFlowState state)
     {
+        UnityEngine.Debug.Log($"Changing state to {state}");
+
         State = state;
         OnStateChanged?.Invoke(state);
+    }
+
+    private void Update()
+    {
+        if(UnityEngine.Input.GetKeyDown(UnityEngine.KeyCode.Escape))
+        {
+            SetState(GameFlowState.Death);
+        }
     }
 }

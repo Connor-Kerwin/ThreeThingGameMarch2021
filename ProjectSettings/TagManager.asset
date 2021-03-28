@@ -14,10 +14,10 @@ TagManager:
   - 
   - 
   - Collision_Geometry
-  - 
-  - CursorRaycastFloor
-  - 
-  - 
+  - Player
+  - Chicken
+  - Egg
+  - Collector
   - 
   - 
   - 

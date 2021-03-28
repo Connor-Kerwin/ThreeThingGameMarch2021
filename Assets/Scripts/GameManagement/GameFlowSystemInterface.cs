@@ -26,23 +26,18 @@ public class GameFlowSystemInterface : GameSystemInterface<GameFlowSystem>
         return GameFlowSystem.Instance;
     }
 
-    public void SetStateNone()
+    public void SetStateMenu()
     {
-        Target.SetState(GameFlowState.None);
-    }
-
-    public void SetStateJoining()
-    {
-        Target.SetState(GameFlowState.Joining);
+        Target.SetState(GameFlowState.Menu);
     }
 
     public void SetStatePlaying()
     {
-        Target.SetState(GameFlowState.Playing);
+        Target.SetState(GameFlowState.Game);
     }
 
-    public void SetStateTeamSelect()
+    public void SetStateDeath()
     {
-        Target.SetState(GameFlowState.TeamSelect);
+        Target.SetState(GameFlowState.Death);
     }
 }

@@ -14,7 +14,7 @@ public class Damage : MonoBehaviour
         {
             enemy.TakeDamage(DamageAmount);
             if (destryOnContact)
-                GameObject.Destroy(this);
+                GameObject.Destroy(this.gameObject);
         }
     }
 }

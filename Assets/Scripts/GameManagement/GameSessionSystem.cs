@@ -9,12 +9,16 @@ public class GameSessionSystem : GameSystem<GameSessionSystem>
 
     public void StartSession()
     {
+        UnityEngine.Debug.Log($"Starting session");
+
         InSession = true;
         OnStartSession?.Invoke();
     }
 
     public void EndSession()
     {
+        UnityEngine.Debug.Log($"Ending session");
+
         InSession = false;
         OnEndSession?.Invoke();
     }

@@ -58,3 +58,5 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+/Assets/Scripts/GameManagement/HighscoreSecret.cs
+/Assets/Scripts/GameManagement/HighscoreSecret.cs.meta

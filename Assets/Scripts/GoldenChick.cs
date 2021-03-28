@@ -9,7 +9,7 @@ public class GoldenChick : MonoBehaviour
     private void Reset()
     {
         collectable = GetComponent<Collectable>();
-        collectable.CollectableType = CollectableTypes.GOLDEN_CHICK;
+        collectable.CollectableType = CollectableTypes.EGG;
     }
 
     private void Awake()
