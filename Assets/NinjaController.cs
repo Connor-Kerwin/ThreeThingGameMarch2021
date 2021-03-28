@@ -105,7 +105,7 @@ public abstract class Utility : MonoBehaviour
 
 public abstract class Attack : MonoBehaviour
 {
-    public float damage;
+    public int damage;
     public float cooldown;
     public abstract void Invoke(Vector3 sourcePos, Vector3 sourceDir);
 }

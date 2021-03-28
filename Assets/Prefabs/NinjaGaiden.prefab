@@ -205,8 +205,9 @@ GameObject:
   - component: {fileID: 8990248334998399842}
   - component: {fileID: 8990248334998399843}
   - component: {fileID: 8990248334998399845}
+  - component: {fileID: 5226716459825608072}
   m_Layer: 0
-  m_Name: NinjaGayden
+  m_Name: NinjaGaiden
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,3 +293,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0
+--- !u!114 &5226716459825608072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8990248334998399854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0851d9360a2d18c4a85cf12c693bb5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnSpawn:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDespawn:
+    m_PersistentCalls:
+      m_Calls: []

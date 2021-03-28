@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    public float DamageAmount;
+    public int DamageAmount;
     public bool destryOnContact;
 
     private void OnTriggerEnter(Collider other)
     {
-        var enemy = other.GetComponent<EnemyAI>();
+        var enemy = other.GetComponent<Health>();
         if (enemy)
         {
-            //TODO DAMAGE THE ENEMY
+            enemy.TakeDamage(DamageAmount);
             if (destryOnContact)
                 GameObject.Destroy(this);
         }
