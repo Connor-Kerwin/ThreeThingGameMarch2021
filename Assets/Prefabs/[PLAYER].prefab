@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8670011227597585097}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,10 +46,10 @@ GameObject:
   - component: {fileID: 283788305787835360}
   - component: {fileID: 6475804432302692662}
   - component: {fileID: 2106392104086421518}
-  - component: {fileID: 981136529189246313}
-  - component: {fileID: 8164270462003425870}
-  - component: {fileID: 4720848216032952436}
-  m_Layer: 0
+  - component: {fileID: 7465417643443853991}
+  - component: {fileID: 8573936824556179721}
+  - component: {fileID: 3895491282307421802}
+  m_Layer: 9
   m_Name: '[PLAYER]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!143 &981136529189246313
+--- !u!143 &7465417643443853991
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,7 +233,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8164270462003425870
+--- !u!114 &8573936824556179721
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,7 +249,7 @@ MonoBehaviour:
   serverOnly: 0
   m_AssetId: 
   hasSpawned: 0
---- !u!114 &4720848216032952436
+--- !u!114 &3895491282307421802
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8554921171568177914}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

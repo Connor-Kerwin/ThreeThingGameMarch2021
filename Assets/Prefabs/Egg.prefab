@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6691830089369461839}
   - component: {fileID: 2153230806870495347}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Egg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,6 +160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: egglowpoly
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d42ed4b2b3915c54ab7f35dc2dfcebc6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d42ed4b2b3915c54ab7f35dc2dfcebc6, type: 3}
