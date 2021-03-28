@@ -1,6 +1,5 @@
 using Mirror;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,26 +10,23 @@ public interface ICollector
 
 public static class CollectableTypes
 {
-    public const string GOLDEN_CHICK = "GOLDEN_CHICK";
+    public const string EGG = "EGG";
+    public const string HEALTH = "HEALTH";
+    public const string AMMO = "AMMO";
 }
 
-public class Collectable : NetworkBehaviour
+public class Collectable : MonoBehaviour
 {
     public string CollectableType;
     public UnityEvent OnCollected;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!isServer)
-        {
-            return;
-        }
-
         var collector = other.GetComponent<ICollector>();
         if (collector != null && collector.TryCollect(this))
         {
             OnCollected.Invoke();
-            NetworkServer.Destroy(gameObject);
+            CollectableSystem.Instance.DespawnCollectable(this);
         }
     }
 }

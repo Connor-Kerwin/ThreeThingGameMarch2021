@@ -3,47 +3,52 @@ using UnityEngine;
 
 public class ChickenSystem : GameSystem<ChickenSystem>
 {
-    // TODO: Handle despawning eggs + remove ref...
-
     public int EggLimit = 128;
-    public Egg EggPrefab;
 
-    private List<Egg> eggs;
+    private List<Collectable> eggs;
+    private CollectableSystem collectableSystem;
 
     protected override void Awake()
     {
         base.Awake();
-        eggs = new List<Egg>();
+        eggs = new List<Collectable>();
+    }
+
+    private void Start()
+    {
+        collectableSystem = CollectableSystem.Instance;
+        collectableSystem.OnSpawned += OnEggSpawned;
+        collectableSystem.OnDespawned += OnEggDespawned;
+    }
+
+    private void OnEggDespawned(Collectable obj)
+    {
+        eggs.Remove(obj);
+    }
+
+    private void OnEggSpawned(Collectable obj)
+    {
+        eggs.Add(obj);
     }
 
     public bool TrySpawnEgg(Vector3 position)
     {
         if(eggs.Count < EggLimit)
         {
-            Egg instance = GameObject.Instantiate<Egg>(EggPrefab);
-            eggs.Add(instance);
-
-            instance.transform.position = position;
+            var inst = collectableSystem.SpawnCollectable(CollectableTypes.EGG);
+            inst.transform.position = position;
         }
 
         return false;
     }
 
-    public void Despawn(Egg egg)
-    {
-
-    }
-
     public void ClearEggs()
     {
-        foreach(var item in eggs)
+        int num = eggs.Count;
+        for(int i = 0; i < num; i++)
         {
-            if(item == null)
-            {
-                continue;
-            }
-
-            GameObject.Destroy(item.gameObject);
+            var egg = eggs[0];
+            collectableSystem.DespawnCollectable(egg);
         }
 
         eggs.Clear();
