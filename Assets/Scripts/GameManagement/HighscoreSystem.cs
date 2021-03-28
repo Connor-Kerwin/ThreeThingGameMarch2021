@@ -38,6 +38,10 @@ public class HighscoreSystem : GameSystem<HighscoreSystem>
 
         secret = HighscoreSecret.Secret;
         scores = new ScoreData[NUM_SCORES];
+        for(int i = 0; i < scores.Length; i++)
+        {
+            scores[i] = new ScoreData();
+        }
     }
 
     public void RefreshScores()
