@@ -3635,7 +3635,7 @@ MonoBehaviour:
   Spawner: {fileID: 1826839299}
   Running: 0
   Interval: 2
-  Number: 5
+  Number: 1
 --- !u!114 &1826839299
 MonoBehaviour:
   m_ObjectHideFlags: 0
