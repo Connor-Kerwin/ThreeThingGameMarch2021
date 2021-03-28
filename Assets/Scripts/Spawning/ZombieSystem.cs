@@ -34,7 +34,7 @@ public class ZombieSystem : GameSystem<ZombieSystem>
     {
         if (zombies.Remove(instance))
         {
-            GameObject.Destroy(Instance.gameObject);
+            GameObject.Destroy(instance.gameObject);
         }
     }
 
