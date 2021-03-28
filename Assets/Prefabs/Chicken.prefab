@@ -108,19 +108,6 @@ MonoBehaviour:
   OnPlayerDespawned:
     m_PersistentCalls:
       m_Calls: []
---- !u!135 &7364260085363486484
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743594431670954839}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.0020024762
-  m_Center: {x: -0.00007614574, y: 0.0000050711674, z: 0.0019949353}
 --- !u!54 &410522154824176591
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -137,6 +124,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!135 &7364260085363486484
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743594431670954839}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0020024762
+  m_Center: {x: -0.00007614574, y: 0.0000050711674, z: 0.0019949353}
 --- !u!1001 &1509572514342606342
 PrefabInstance:
   m_ObjectHideFlags: 0
