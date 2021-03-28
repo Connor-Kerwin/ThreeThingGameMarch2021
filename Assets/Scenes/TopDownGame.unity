@@ -4404,10 +4404,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d88787485f7815947ac77b930b61c8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 1552721197}
+  Target: {fileID: 0}
   LerpRate: 1
-  Offset: {x: 0, y: 10, z: -10}
-  RotationalOffset: {x: 45, y: 0, z: 0}
+  Offset: {x: 0, y: 10, z: -5}
+  RotationalOffset: {x: 60, y: 0, z: 0}
 --- !u!1 &1063453312
 GameObject:
   m_ObjectHideFlags: 0
@@ -5447,7 +5447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e67a192c01643b14c829f90279ea62ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 6282728865113389496, guid: c1cdf693937b7b441afd548626e1ce8b,
+  PlayerPrefab: {fileID: 5226716459825608072, guid: b77090282c31c1c47838b81acde358c5,
     type: 3}
   PlayerSpawns:
   - {fileID: 1474853621}
