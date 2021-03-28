@@ -6,7 +6,8 @@ using UnityEngine;
 public enum MainMenuState
 {
     Menu,
-    Highscore
+    Highscore,
+    Credits
 }
 
 public class MainMenuMode : MonoBehaviour
@@ -15,6 +16,7 @@ public class MainMenuMode : MonoBehaviour
 
     public GameObject HighscoreContent;
     public GameObject MenuContent;
+    public GameObject CreditsContent;
 
     private void Start()
     {
@@ -26,6 +28,7 @@ public class MainMenuMode : MonoBehaviour
         State = MainMenuState.Highscore;
         HighscoreContent.SetActive(true);
         MenuContent.SetActive(false);
+        CreditsContent.SetActive(false);
 
         HighscoreSystem.Instance.RefreshScores();
     }
@@ -35,5 +38,14 @@ public class MainMenuMode : MonoBehaviour
         State = MainMenuState.Menu;
         HighscoreContent.SetActive(false);
         MenuContent.SetActive(true);
+        CreditsContent.SetActive(false);
+    }
+
+    public void GoCredits()
+    {
+        State = MainMenuState.Credits;
+        HighscoreContent.SetActive(false);
+        MenuContent.SetActive(false);
+        CreditsContent.SetActive(true);
     }
 }
