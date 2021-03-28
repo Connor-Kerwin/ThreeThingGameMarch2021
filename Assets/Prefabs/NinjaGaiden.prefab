@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53573db28362ae345bd449d39b77943e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedScale: 0.03
+  SpeedScale: 3
   CurrentMainAttack: {fileID: 8990248334998399843}
   CurrentSecondaryAttack: {fileID: 8990248334998399842}
   CurrentUtility: {fileID: 8990248334998399845}

@@ -68,7 +68,7 @@ public class NinjaController : MonoBehaviour
             animator.speed = 1 / ((dis + 1) / 3);
         }
 
-        gameObject.transform.position += (direction * SpeedScale) / (dis + 1);
+        gameObject.transform.position += ((direction * SpeedScale) / (dis + 1)) * Time.deltaTime;
 
         if (Physics.Raycast(gameObject.transform.position, Vector3.down, out RaycastHit raycastHit))
         {
