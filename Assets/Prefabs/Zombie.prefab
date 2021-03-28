@@ -13,6 +13,10 @@ GameObject:
   - component: {fileID: 1354584172334283085}
   - component: {fileID: 1354584172334283074}
   - component: {fileID: 7445667391842679552}
+  - component: {fileID: 1419643886133878868}
+  - component: {fileID: 3976566891452350555}
+  - component: {fileID: 8650552783718845729}
+  - component: {fileID: -1462819482480740010}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -102,6 +106,63 @@ MonoBehaviour:
   OnPlayerDespawned:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1419643886133878868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354584172334283075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3dba076ea547e42965a625bc565109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 10
+  maxHealth: 10
+--- !u!54 &3976566891452350555
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354584172334283075}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &8650552783718845729
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354584172334283075}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.1, z: 1}
+  m_Center: {x: -0.054603815, y: 0.97, z: 0}
+--- !u!114 &-1462819482480740010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354584172334283075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f585b30adb9a4b048a5e10122e295ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageAmount: 1
+  destryOnContact: 0
 --- !u!1 &1354584173110979116
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,6 +43,21 @@ public class Health : MonoBehaviour, IHealth
     public bool TakeDamage(int number)
     {
         CurrentHealth -= number;
+        if (currentHealth <= 0)
+        {
+            //GameObject.Destroy(this.gameObject);
+            var zomb = gameObject.GetComponent<Zombie>();
+            var play = gameObject.GetComponent<GamePlayer>();
+            if (zomb)
+            {
+                ZombieSystem.Instance.Despawn(zomb);
+            }
+            else if(play)
+            {
+                GameFlowSystem.Instance.SetState(GameFlowState.Death);
+            }
+            return true;
+        }
         return false;
     }
 
