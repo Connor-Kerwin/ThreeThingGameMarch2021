@@ -54,7 +54,7 @@ public class Health : MonoBehaviour, IHealth
             }
             else if(play)
             {
-                PlayerSystem.Instance.DespawnPlayer();
+                GameFlowSystem.Instance.SetState(GameFlowState.Death);
             }
             return true;
         }

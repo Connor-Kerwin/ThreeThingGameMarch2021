@@ -61,6 +61,11 @@ public class NinjaController : MonoBehaviour
 
         gameObject.transform.position += (direction * SpeedScale) / (dis + 1);
 
+        if (Physics.Raycast(gameObject.transform.position, Vector3.down, out RaycastHit raycastHit))
+        {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, raycastHit.point.y + 0.2f, gameObject.transform.position.z);
+        }
+
 
         //if(vert != 0 || hori != 0)
         //    gameObject.transform.forward = direction;
@@ -107,5 +112,6 @@ public abstract class Attack : MonoBehaviour
 {
     public int damage;
     public float cooldown;
+    public GameObject Ignore;
     public abstract void Invoke(Vector3 sourcePos, Vector3 sourceDir);
 }

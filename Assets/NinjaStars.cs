@@ -14,6 +14,7 @@ public class NinjaStars : Attack
         var dmg = obj.AddComponent<Damage>();
         dmg.DamageAmount = damage;
         dmg.destryOnContact = true;
+        dmg.Ignore = this.Ignore;
         obj.GetComponent<Rigidbody>().AddForce(sourceDir * speed);
         GameObject.Destroy(obj, Duration);
     }

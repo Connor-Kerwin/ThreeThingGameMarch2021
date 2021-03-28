@@ -39,7 +39,7 @@ public class GameCamera : MonoBehaviour
             Quaternion tRot = Target.rotation;
 
             tPos += Offset;
-            tRot *= Quaternion.Euler(RotationalOffset);
+            tRot = Quaternion.Euler(RotationalOffset);
 
             transform.position = Vector3.Lerp(cPos, tPos, LerpRate);
             transform.rotation = Quaternion.Lerp(cRot, tRot, LerpRate);

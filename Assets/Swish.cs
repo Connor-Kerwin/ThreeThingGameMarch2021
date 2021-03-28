@@ -7,6 +7,7 @@ public class Swish : Attack
     public float SwishDuration;
     public float Swishtance;
     public GameObject swishPefab;
+
     public override void Invoke(Vector3 sourcePos, Vector3 sourceDir)
     {
         var obj = GameObject.Instantiate(swishPefab, new Vector3(sourcePos.x, sourcePos.y + 0.7f, sourcePos.z), Quaternion.identity);
@@ -15,6 +16,7 @@ public class Swish : Attack
         var dmg = obj.AddComponent<Damage>();
         dmg.DamageAmount = damage;
         dmg.destryOnContact = false;
+        dmg.Ignore = this.Ignore;
         GameObject.Destroy(obj, SwishDuration);
     }
 }

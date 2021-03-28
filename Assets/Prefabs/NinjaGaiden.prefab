@@ -1,5 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4607286932832762364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5370804794649466083}
+  - component: {fileID: 6600656910536572731}
+  - component: {fileID: 1232714825879126556}
+  m_Layer: 12
+  m_Name: Collector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5370804794649466083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4607286932832762364}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.303, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8990248334998399840}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6600656910536572731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4607286932832762364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6fb80945c175645bb16651fb0376b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEggCollected:
+    m_PersistentCalls:
+      m_Calls: []
+  ScoreForEgg: 10
+--- !u!135 &1232714825879126556
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4607286932832762364}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8990248333357581212
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,8 +88,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8990248333357581212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4156, z: 0.2416}
-  m_LocalScale: {x: 0.3013, y: 0.4108592, z: 1.3112352}
+  m_LocalPosition: {x: -0, y: 0.539, z: 0.333}
+  m_LocalScale: {x: 0.3013, y: 0.3233873, z: 0.74150354}
   m_Children: []
   m_Father: {fileID: 8990248334557399638}
   m_RootOrder: 0
@@ -208,6 +269,8 @@ GameObject:
   - component: {fileID: 5226716459825608072}
   - component: {fileID: 4627101296207709294}
   - component: {fileID: -577780749712251551}
+  - component: {fileID: 2531594728141559206}
+  - component: {fileID: 2862385587596671710}
   m_Layer: 0
   m_Name: NinjaGaiden
   m_TagString: Untagged
@@ -227,6 +290,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8990248334557399638}
+  - {fileID: 5370804794649466083}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -242,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53573db28362ae345bd449d39b77943e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpeedScale: 0.01
+  SpeedScale: 0.03
   CurrentMainAttack: {fileID: 8990248334998399843}
   CurrentSecondaryAttack: {fileID: 8990248334998399842}
   CurrentUtility: {fileID: 8990248334998399845}
@@ -258,8 +322,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50ca6d94f4dede040974583c574295d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 4
   cooldown: 0.5
+  Ignore: {fileID: 8990248334998399854}
   Duration: 1
   speed: 500
   ninjaStarPrefab: {fileID: 6659545522969175365, guid: 8936df71bd350b34186a6daabfa98d54,
@@ -278,6 +343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   cooldown: 2
+  Ignore: {fileID: 8990248334998399854}
   SwishDuration: 1
   Swishtance: 1.5
   swishPefab: {fileID: 843385540974189144, guid: 539c1cb480414a84bb92ad64fdb259c5,
@@ -309,7 +375,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnSpawn:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2862385587596671710}
+        m_TargetAssemblyTypeName: CameraSystemInterface, Assembly-CSharp
+        m_MethodName: SetCameraTarget
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8990248334998399840}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDespawn:
     m_PersistentCalls:
       m_Calls: []
@@ -343,3 +421,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 10
   maxHealth: 10
+--- !u!65 &2531594728141559206
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8990248334998399854}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.061101, z: 1}
+  m_Center: {x: 0, y: 0.68305546, z: 0}
+--- !u!114 &2862385587596671710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8990248334998399854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b0e28337e3b3f47a94a8368b80a936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
