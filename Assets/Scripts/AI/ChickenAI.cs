@@ -5,7 +5,7 @@ using UnityEngine.AI;
 public class ChickenAI : MonoBehaviour
 {
     public NavMeshAgent Agent;
-    public ChickenSystemInterface ChickenInterface;
+    public EggSystemInterface ChickenInterface;
     public PlayerSystemInterface PlayerInterface;
 
     public float DistanceThreshold = 0.1f;

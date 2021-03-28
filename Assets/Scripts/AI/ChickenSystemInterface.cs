@@ -2,18 +2,23 @@
 
 public class ChickenSystemInterface : GameSystemInterface<ChickenSystem>
 {
-    public bool TrySpawnEgg(Vector3 position)
-    {
-        return Target.TrySpawnEgg(position);
-    }
-
     protected override ChickenSystem GetTarget()
     {
         return ChickenSystem.Instance;
     }
 
-    public void ClearEggs()
+    public void SpawnChicken(Vector3 position)
     {
-        Target.ClearEggs();
+        Target.SpawnChicken(position, Quaternion.identity);
+    }
+
+    public void DespawnChicken(GameObject instance)
+    {
+        Target.DespawnChicken(instance);
+    }
+
+    public void CleanupChickens()
+    {
+        Target.CleanupChickens();
     }
 }

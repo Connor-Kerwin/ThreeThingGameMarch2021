@@ -3,54 +3,43 @@ using UnityEngine;
 
 public class ChickenSystem : GameSystem<ChickenSystem>
 {
-    public int EggLimit = 128;
+    public GameObject Prefab;
 
-    private List<Collectable> eggs;
-    private CollectableSystem collectableSystem;
+    private List<GameObject> chickens;
 
     protected override void Awake()
     {
         base.Awake();
-        eggs = new List<Collectable>();
+        chickens = new List<GameObject>();
     }
 
-    private void Start()
+    public GameObject SpawnChicken(Vector3 position, Quaternion rotation)
     {
-        collectableSystem = CollectableSystem.Instance;
-        collectableSystem.OnSpawned += OnEggSpawned;
-        collectableSystem.OnDespawned += OnEggDespawned;
+        var inst = GameObject.Instantiate<GameObject>(Prefab);
+        chickens.Add(inst);
+
+        inst.transform.position = position;
+        inst.transform.rotation = rotation;
+
+        return inst;
     }
 
-    private void OnEggDespawned(Collectable obj)
+    public void DespawnChicken(GameObject instance)
     {
-        eggs.Remove(obj);
-    }
-
-    private void OnEggSpawned(Collectable obj)
-    {
-        eggs.Add(obj);
-    }
-
-    public bool TrySpawnEgg(Vector3 position)
-    {
-        if(eggs.Count < EggLimit)
+        if(chickens.Remove(instance))
         {
-            var inst = collectableSystem.SpawnCollectable(CollectableTypes.EGG);
-            inst.transform.position = position;
+            GameObject.Destroy(instance);
+        }
+    }
+
+    public void CleanupChickens()
+    {
+        int num = chickens.Count;
+        for (int i = 0; i < num; i++)
+        {
+            DespawnChicken(chickens[0]);
         }
 
-        return false;
-    }
-
-    public void ClearEggs()
-    {
-        int num = eggs.Count;
-        for(int i = 0; i < num; i++)
-        {
-            var egg = eggs[0];
-            collectableSystem.DespawnCollectable(egg);
-        }
-
-        eggs.Clear();
+        chickens.Clear();
     }
 }
