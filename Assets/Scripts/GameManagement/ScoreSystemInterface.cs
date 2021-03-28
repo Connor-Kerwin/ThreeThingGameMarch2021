@@ -1,5 +1,14 @@
-﻿public class ScoreSystemInterface : GameSystemInterface<ScoreSystem>
+﻿using UnityEngine.Events;
+
+public class ScoreSystemInterface : GameSystemInterface<ScoreSystem>
 {
+    public UnityEvent OnScoreChanged;
+
+    private void Start()
+    {
+        Target.OnScoreChanged += OnScoreChanged.Invoke;
+    }
+
     public void ResetScore()
     {
         Target.ResetScore();
