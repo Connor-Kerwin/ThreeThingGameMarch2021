@@ -16,6 +16,7 @@ public class NinjaController : MonoBehaviour
     public Attack CurrentMainAttack;
     public Attack CurrentSecondaryAttack;
     public Utility CurrentUtility;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -47,17 +48,25 @@ public class NinjaController : MonoBehaviour
     private void UpdateMovment(float vert, float hori)
     {
         var ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (!Physics.Raycast(ray, maxDistance: 100f, hitInfo: out RaycastHit hit))
-            Debug.LogError("No Hit On Screen To Point Ray");
-        else
+        if (Physics.Raycast(ray, maxDistance: 100f, hitInfo: out RaycastHit hit))
         {
-
             gameObject.transform.LookAt(hit.point, Vector3.up);
             gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, gameObject.transform.rotation.eulerAngles.y, 0));
+
         }
 
         var direction = new Vector3(hori, 0, vert).normalized;
         var dis = Vector3.Distance(direction, gameObject.transform.forward);
+
+        if (hori == 0 && vert == 0)
+        {
+            animator.SetBool("moving", false);
+        }
+        else
+        {
+            animator.SetBool("moving", true);
+            animator.speed = 1 / ((dis + 1) / 3);
+        }
 
         gameObject.transform.position += (direction * SpeedScale) / (dis + 1);
 
@@ -77,6 +86,7 @@ public class NinjaController : MonoBehaviour
     {
         if (Time.time > mainAttackCooldDown)
         {
+            animator.SetTrigger("slash");
             CurrentMainAttack.Invoke(gameObject.transform.position, gameObject.transform.forward);
             mainAttackCooldDown = Time.time + CurrentMainAttack.cooldown;
         }
