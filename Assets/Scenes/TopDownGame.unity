@@ -800,7 +800,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &430355808
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1083,7 +1083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &544337445
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1701,6 +1701,7 @@ GameObject:
   - component: {fileID: 706105343}
   - component: {fileID: 706105345}
   - component: {fileID: 706105344}
+  - component: {fileID: 706105346}
   m_Layer: 0
   m_Name: Death Screen
   m_TagString: Untagged
@@ -1793,6 +1794,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &706105346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706105342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e2abc29e3a5cb46a8d7e362d42aaef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  field: {fileID: 633660149}
+  OnScoreSubmitSuccessful:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 706105345}
+        m_TargetAssemblyTypeName: GameFlowSystemInterface, Assembly-CSharp
+        m_MethodName: SetStateMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnScoreSubmitFailed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &712174725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2519,7 +2551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2947eb4e28e16ce46b6089f089a292fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameId: 606041d557179383f576844f'
+  GameId: 606041d557179383f576844f
 --- !u!1 &1031652494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,9 +2635,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 706105345}
-        m_TargetAssemblyTypeName: GameFlowSystemInterface, Assembly-CSharp
-        m_MethodName: SetStateMenu
+      - m_Target: {fileID: 706105346}
+        m_TargetAssemblyTypeName: ScoreSubmit, Assembly-CSharp
+        m_MethodName: SubmitScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -30,6 +30,7 @@ public class HighscoreSystem : GameSystem<HighscoreSystem>
     public string GameId;
 
     public event Action OnScoresChanged;
+    public event Action<bool> OnScoreUploadFinished;
 
     protected override void Awake()
     {
@@ -102,10 +103,12 @@ public class HighscoreSystem : GameSystem<HighscoreSystem>
 
         if (request.error != null)
         {
+            OnScoreUploadFinished?.Invoke(false);
             Debug.Log("Erro: " + request.error);
         }
         else
         {
+            OnScoreUploadFinished?.Invoke(true);
             Debug.Log("All OK");
             Debug.Log("Status Code: " + request.responseCode);
         }
